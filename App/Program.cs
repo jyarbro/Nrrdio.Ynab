@@ -39,11 +39,17 @@ await Host
     .RunAsync();
 
 public class AppHost : IHostedService {
+    YnabClient Client { get; init; }
+
     public AppHost(
+        YnabClient client
     ) {
+        Client = client;
     }
 
-    public Task StartAsync(CancellationToken cancellationToken) => Task.CompletedTask;
+    public Task StartAsync(CancellationToken cancellationToken) {
+        return Task.CompletedTask;
+    }
 
     public Task StopAsync(CancellationToken cancellationToken) => Task.CompletedTask;
 }
