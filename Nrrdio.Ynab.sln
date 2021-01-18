@@ -13,11 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git Config", "Git Config", 
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		.gitmodules = .gitmodules
+		.git\config = .git\config
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nrrdio.Utilities", "Nrrdio.Utilities\Nrrdio.Utilities\Nrrdio.Utilities.csproj", "{91790884-78B4-4DB6-BC97-80FFF563215B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nrrdio.Utilities.Web", "Nrrdio.Utilities\Nrrdio.Utilities.Web\Nrrdio.Utilities.Web.csproj", "{A5918F3F-73BC-437D-A904-948085736E18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Macross.Json.Extensions", "MacrossSoftware\ClassLibraries\Macross.Json.Extensions\Code\Macross.Json.Extensions.csproj", "{EFBDC4D7-D219-4608-B197-CC36F07CC6BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,10 @@ Global
 		{A5918F3F-73BC-437D-A904-948085736E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5918F3F-73BC-437D-A904-948085736E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5918F3F-73BC-437D-A904-948085736E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFBDC4D7-D219-4608-B197-CC36F07CC6BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFBDC4D7-D219-4608-B197-CC36F07CC6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFBDC4D7-D219-4608-B197-CC36F07CC6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFBDC4D7-D219-4608-B197-CC36F07CC6BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

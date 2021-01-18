@@ -6,4 +6,8 @@
     <RootNamespace>Nrrdio.Ynab.Client</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MacrossSoftware\ClassLibraries\Macross.Json.Extensions\Code\Macross.Json.Extensions.csproj" />
+  </ItemGroup>
+
 </Project>
