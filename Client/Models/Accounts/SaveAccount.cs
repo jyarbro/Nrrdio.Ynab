@@ -12,6 +12,7 @@ namespace Nrrdio.Ynab.Client.Models.Accounts {
         /// <summary>
         /// The account type
         /// </summary>
+        [JsonConverter(typeof(JsonStringEnumMemberConverter))]
         public AccountType Type { get; set; }
 
         /// <summary>
