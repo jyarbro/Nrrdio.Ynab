@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git Config", "Git Config", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nrrdio.Utilities", "Nrrdio.Utilities\Nrrdio.Utilities\Nrrdio.Utilities.csproj", "{91790884-78B4-4DB6-BC97-80FFF563215B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nrrdio.Utilities.Web", "Nrrdio.Utilities\Nrrdio.Utilities.Web\Nrrdio.Utilities.Web.csproj", "{A5918F3F-73BC-437D-A904-948085736E18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{91790884-78B4-4DB6-BC97-80FFF563215B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91790884-78B4-4DB6-BC97-80FFF563215B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91790884-78B4-4DB6-BC97-80FFF563215B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5918F3F-73BC-437D-A904-948085736E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5918F3F-73BC-437D-A904-948085736E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5918F3F-73BC-437D-A904-948085736E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5918F3F-73BC-437D-A904-948085736E18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
