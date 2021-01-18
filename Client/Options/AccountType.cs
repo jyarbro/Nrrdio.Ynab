@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Accounts {
+namespace Nrrdio.Ynab.Client.Options {
     public enum AccountType {
         [EnumMember(Value = "checking")]
         Checking,

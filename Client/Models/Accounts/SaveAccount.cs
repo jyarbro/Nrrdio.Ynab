@@ -1,4 +1,5 @@
 ﻿using Nrrdio.Ynab.Client.Json;
+using Nrrdio.Ynab.Client.Options;
 using System.Text.Json.Serialization;
 
 namespace Nrrdio.Ynab.Client.Models.Accounts {

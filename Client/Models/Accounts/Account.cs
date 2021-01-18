@@ -1,4 +1,5 @@
 ﻿using Nrrdio.Ynab.Client.Json;
+using Nrrdio.Ynab.Client.Options;
 using System.Text.Json.Serialization;
 
 namespace Nrrdio.Ynab.Client.Models.Accounts {
@@ -21,7 +22,7 @@ namespace Nrrdio.Ynab.Client.Models.Accounts {
         /// Whether this account is closed or not
         /// </summary>
         public bool Closed { get; set; }
-        
+
         public string Note { get; set; }
 
         /// <summary>
