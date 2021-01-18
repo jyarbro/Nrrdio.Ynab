@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj" />
     <ProjectReference Include="..\Nrrdio.Utilities\Nrrdio.Utilities.Web\Nrrdio.Utilities.Web.csproj" />
     <ProjectReference Include="..\Nrrdio.Utilities\Nrrdio.Utilities\Nrrdio.Utilities.csproj" />
   </ItemGroup>

@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Nrrdio.Utilities.Loggers;
+using Nrrdio.Ynab.Client;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,12 +26,14 @@ await Host
     .ConfigureServices((host, services) => {
         services.AddHostedService<AppHost>();
 
+        services.AddSingleton<ILoggerProvider, ColorConsoleLoggerProvider>();
+        services.AddLogging();
+
         services.Configure<YnabOptions>((options) => {
             host.Configuration.GetSection(YnabOptions.Section).Bind(options);
         });
 
-        services.AddSingleton<ILoggerProvider, ColorConsoleLoggerProvider>();
-        services.AddLogging();
+        services.AddSingleton<YnabClient>();
     })
     .Build()
     .RunAsync();
