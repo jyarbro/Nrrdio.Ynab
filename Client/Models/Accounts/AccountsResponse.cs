@@ -8,7 +8,7 @@ namespace Nrrdio.Ynab.Client.Models.Accounts {
             public List<Account> Accounts { get; set; }
 
             /// <summary>
-            /// The knowledge of the server
+            /// Used for delta requests
             /// </summary>
             public long ServerKnowledge { get; set; }
         }
