@@ -1,4 +1,4 @@
-﻿namespace Nrrdio.Ynab.App.Models.Options {
+﻿namespace App.Models.Options {
     public class YnabOptions {
         public const string Section = "YNAB";
 
