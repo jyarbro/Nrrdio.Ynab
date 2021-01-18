@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Nrrdio.Ynab.App</AssemblyName>
+    <RootNamespace>Nrrdio.Ynab.App</RootNamespace>
+  </PropertyGroup>
+
+</Project>
