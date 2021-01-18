@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git Config", "Git Config", 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nrrdio.Utilities", "Nrrdio.Utilities\Nrrdio.Utilities\Nrrdio.Utilities.csproj", "{91790884-78B4-4DB6-BC97-80FFF563215B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{1FB5ACEA-B3BE-4E7D-B45B-21CAF4F92155}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FB5ACEA-B3BE-4E7D-B45B-21CAF4F92155}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FB5ACEA-B3BE-4E7D-B45B-21CAF4F92155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91790884-78B4-4DB6-BC97-80FFF563215B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91790884-78B4-4DB6-BC97-80FFF563215B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91790884-78B4-4DB6-BC97-80FFF563215B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91790884-78B4-4DB6-BC97-80FFF563215B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
