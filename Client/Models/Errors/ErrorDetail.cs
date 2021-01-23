@@ -4,4 +4,16 @@
         public string Name { get; set; }
         public string Detail { get; set; }
     }
+
+    /*
+     * Example:
+     * 
+        {
+          "error": {
+            "id": "401",
+            "name": "unauthorized",
+            "detail": "Unauthorized"
+          }
+        }
+     */
 }
