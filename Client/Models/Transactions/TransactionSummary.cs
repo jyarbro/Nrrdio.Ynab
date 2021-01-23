@@ -1,4 +1,4 @@
-﻿using Nrrdio.Ynab.Client.Json;
+﻿using Nrrdio.Ynab.Client.JsonHelpers;
 using Nrrdio.Ynab.Client.Options;
 using System;
 using System.Text.Json.Serialization;

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Json {
+namespace Nrrdio.Ynab.Client.JsonHelpers {
     public class MilliunitConverter : JsonConverter<decimal> {
         public override decimal Read(
             ref Utf8JsonReader reader,

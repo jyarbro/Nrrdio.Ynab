@@ -1,4 +1,4 @@
-﻿using Nrrdio.Ynab.Client.Json;
+﻿using Nrrdio.Ynab.Client.JsonHelpers;
 using System.Text.Json.Serialization;
 
 namespace Nrrdio.Ynab.Client.Models.ScheduledTransactions {
