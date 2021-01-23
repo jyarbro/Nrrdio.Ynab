@@ -1,5 +1,4 @@
-﻿using App.Models.Options;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -29,11 +28,7 @@ await Host
         services.AddSingleton<ILoggerProvider, ColorConsoleLoggerProvider>();
         services.AddLogging();
 
-        services.Configure<YnabOptions>((options) => {
-            host.Configuration.GetSection(YnabOptions.Section).Bind(options);
-        });
-
-        services.AddSingleton<YnabClient>();
+        services.AddYnabClient(host);
     })
     .Build()
     .RunAsync();
