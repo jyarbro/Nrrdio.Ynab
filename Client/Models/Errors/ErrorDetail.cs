@@ -1,6 +1,7 @@
 ﻿namespace Nrrdio.Ynab.Client.Models.Errors {
     public class ErrorDetail {
-        public string Id { get; set; }
+        // Note: While the API refers to this ID as being a string, so far it appears that all results are HTTP status code integers.
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Detail { get; set; }
     }
