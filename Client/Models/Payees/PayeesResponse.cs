@@ -13,4 +13,28 @@ namespace Nrrdio.Ynab.Client.Models.Payees {
             public long ServerKnowledge { get; set; }
         }
     }
+
+    /*
+     * Example:
+     * 
+         {
+           "data": {
+             "payees": [
+               {
+                 "id": "asdf1234-asdf-1234-asdf-1234asdf1234",
+                 "name": "Asdf 1234",
+                 "transfer_account_id": null,
+                 "deleted": false
+               },
+               {
+                 "id": "asdf1235-asdf-1235-asdf-1235asdf1235",
+                 "name": "Asdf 1235",
+                 "transfer_account_id": null,
+                 "deleted": false
+               }
+            ],
+            "server_knowledge": 54321
+          }
+        }
+    */
 }
