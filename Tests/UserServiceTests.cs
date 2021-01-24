@@ -12,7 +12,7 @@ namespace Tests {
     [TestClass]
     public class UserServiceTests {
         [TestMethod]
-        public void TestMethod1() {
+        public void GetUser() {
             var userResponse = JsonSerializer.Deserialize<UserResponse>(@"
                 {
                     ""data"": {
