@@ -1,6 +1,6 @@
 ﻿using App.Models.Options;
 using Microsoft.Extensions.Options;
-using Nrrdio.Ynab.Client.Models.Users;
+using Nrrdio.Ynab.Client.Models.Api.Users;
 using Nrrdio.Ynab.Client.Services.Contracts;
 using System.Threading.Tasks;
 
