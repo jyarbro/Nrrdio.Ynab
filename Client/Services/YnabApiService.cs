@@ -1,12 +1,13 @@
 ﻿using Nrrdio.Utilities.Web;
 using Nrrdio.Utilities.Web.Models.Errors;
 using Nrrdio.Ynab.Client.Models.Errors;
+using Nrrdio.Ynab.Client.Services.Contracts;
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Nrrdio.Ynab.Client.Services {
-    public class YnabApiService {
+    public class YnabApiService : IYnabApiService {
         GzipWebClient WebClient { get; init; }
 
         public YnabApiService(
