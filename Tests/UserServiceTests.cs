@@ -20,7 +20,7 @@ namespace Tests {
                             ""id"": ""asdf1234-asdf-1234-asdf-1234asdf1234""
                         }
                     }
-                }", SnakeToPascalNamingPolicy.Options);
+                }", PascalToSnakeNamingPolicy.Options);
 
             var mockOptions = new Mock<IOptions<YnabHostOptions>>();
             mockOptions.Setup(mock => mock.Value).Returns(new YnabHostOptions { EndPoint = string.Empty });
