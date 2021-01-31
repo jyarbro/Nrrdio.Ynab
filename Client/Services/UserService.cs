@@ -19,7 +19,7 @@ namespace Nrrdio.Ynab.Client.Services {
 
         public async Task<User> GetUser() {
             var response = await Ynab.GetRequest<UserResponse>(ResourceUrl);
-            return response.Data.User;
+            return response?.Data?.User;
         }
     }
 }
