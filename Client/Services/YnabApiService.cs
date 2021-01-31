@@ -1,5 +1,6 @@
 ﻿using Nrrdio.Utilities.Web;
 using Nrrdio.Utilities.Web.Models.Errors;
+using Nrrdio.Utilities.Web.Query;
 using Nrrdio.Ynab.Client.Models.Api.Errors;
 using Nrrdio.Ynab.Client.Services.Contracts;
 using System;
@@ -18,6 +19,7 @@ namespace Nrrdio.Ynab.Client.Services {
 
         public async Task<T> GetRequest<T>(string url) {
             var result = await WebClient.DownloadStringSafe(url);
+
             try {
                 return JsonSerializer.Deserialize<T>(result);
             }
@@ -35,6 +37,21 @@ namespace Nrrdio.Ynab.Client.Services {
 
                 throw new Exception("No suitable HttpException type matched the request error.", new Exception($"{error.Error.Name} ({error.Error.Id}): {error.Error.Detail}"));
             }
+        }
+
+        public async Task<T> GetRequest<T>(string url, object queryParameters) {
+            if (queryParameters is not null) {
+                var query = QuerySerializer.Serialize(queryParameters, new PascalToSnakeNamingPolicy());
+
+                if (url.Contains('?')) {
+                    url = $"{url}&{query}";
+                }
+                else {
+                    url = $"{url}?{query}";
+                }
+            }
+
+            return await GetRequest<T>(url);
         }
     }
 }
