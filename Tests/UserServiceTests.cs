@@ -32,6 +32,7 @@ namespace Tests {
             var service = new UserService(mockOptions.Object, mockApiService.Object);
             var result = await service.GetUser();
 
+            Assert.IsNotNull(result);
             Assert.AreEqual("asdf1234-asdf-1234-asdf-1234asdf1234", result.Id);
         }
     }
