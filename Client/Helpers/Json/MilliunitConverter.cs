@@ -10,8 +10,15 @@ namespace Nrrdio.Ynab.Client.Helpers.Json {
             Type typeToConvert,
             JsonSerializerOptions options) {
 
-            var valueString = reader.GetString();
-            var value = Convert.ToInt64(valueString);
+            long value;
+
+            try {
+                value = reader.GetInt64();
+            }
+            catch (InvalidOperationException) {
+                var valueString = reader.GetString();
+                value = Convert.ToInt64(valueString);
+            }
 
             return value / 1000m;
         }
