@@ -1,4 +1,4 @@
-﻿using Nrrdio.Ynab.Client.JsonHelpers;
+﻿using Nrrdio.Ynab.Client.Helpers.Json;
 using System.Text.Json.Serialization;
 
 namespace Nrrdio.Ynab.Client.Models.Api.Transactions {

@@ -1,4 +1,4 @@
-﻿using Nrrdio.Ynab.Client.JsonHelpers;
+﻿using Nrrdio.Ynab.Client.Helpers.Json;
 using Nrrdio.Ynab.Client.Models.Api.Categories;
 using System;
 using System.Collections.Generic;

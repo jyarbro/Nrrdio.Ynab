@@ -3,27 +3,23 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.JsonHelpers {
-    public class MilliunitConverter : JsonConverter<decimal> {
-        public override decimal Read(
+namespace Nrrdio.Ynab.Client.Helpers.Json {
+    public class IsoDateConverter : JsonConverter<DateTime> {
+        public override DateTime Read(
             ref Utf8JsonReader reader,
             Type typeToConvert,
             JsonSerializerOptions options) {
 
             var valueString = reader.GetString();
-            var value = Convert.ToInt64(valueString);
-
-            return value / 1000m;
+            return Convert.ToDateTime(valueString);
         }
 
         public override void Write(
             Utf8JsonWriter writer, 
-            decimal value, 
+            DateTime value, 
             JsonSerializerOptions options) {
 
-            var milliunitValue = Convert.ToInt64(value * 1000);
-
-            writer.WriteStringValue(milliunitValue.ToString(CultureInfo.InvariantCulture));
+            writer.WriteStringValue(value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
         }
     }
 }
