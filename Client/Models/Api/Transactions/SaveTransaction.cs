@@ -55,7 +55,7 @@ namespace Nrrdio.Ynab.Client.Models.Api.Transactions {
         /// The transaction flag
         /// </summary>
         [JsonConverter(typeof(JsonStringEnumMemberConverter))]
-        public FlagColor FlagColor { get; set; }
+        public FlagColor? FlagColor { get; set; }
 
         /// <summary>
         /// If specified, the new transaction will be assigned this import_id and considered "imported". We will also attempt to match this imported transaction to an existing “user-entered” transation on the same account, with the same amount, and with a date +/-10 days from the imported transaction date.

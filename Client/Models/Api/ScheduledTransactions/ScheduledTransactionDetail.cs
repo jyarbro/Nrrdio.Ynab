@@ -33,7 +33,7 @@ namespace Nrrdio.Ynab.Client.Models.Api.ScheduledTransactions {
         /// The scheduled transaction flag
         /// </summary>
         [JsonConverter(typeof(JsonStringEnumMemberConverter))]
-        public FlagColor FlagColor { get; set; }
+        public FlagColor? FlagColor { get; set; }
 
         public string AccountId { get; set; }
         public string PayeeId { get; set; }
