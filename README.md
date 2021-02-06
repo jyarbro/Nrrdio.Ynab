@@ -15,4 +15,4 @@ This is an incomplete manual implementation of the [YNAB API v1](https://api.you
 
 ---
 
-1: The Macross library is unfortunately encumbered by the MIT license, but is necessary due to a bug in how the System.Text.Json library implements enum deserialization. Eventually it will be removed.
+1: The Macross library is unfortunately encumbered by [the MIT license](https://github.com/Macross-Software/core/blob/develop/LICENSE.txt), but is necessary due to a bug in how the System.Text.Json library implements enum deserialization. Eventually it will be removed.
