@@ -1,10 +1,10 @@
 ﻿using Nrrdio.Ynab.Client.Helpers.Json;
-using Nrrdio.Ynab.Client.Models.Api.Categories;
+using Nrrdio.Ynab.Client.Models.Responses.Categories;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Months {
+namespace Nrrdio.Ynab.Client.Models.Responses.Months {
     public class MonthDetail {
         public DateTime Month { get; set; }
         public string Note { get; set; }

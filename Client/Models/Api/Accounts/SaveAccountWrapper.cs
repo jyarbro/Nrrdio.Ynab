@@ -1,5 +1,5 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Api.Accounts {
+﻿namespace Nrrdio.Ynab.Client.Models.Responses.Accounts {
     public class SaveAccountWrapper {
-        public SaveAccount Account { get; set; }
+        public SaveAccount? Account { get; set; }
     }
 }

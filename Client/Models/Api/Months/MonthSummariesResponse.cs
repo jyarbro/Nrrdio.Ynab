@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Months {
+namespace Nrrdio.Ynab.Client.Models.Responses.Months {
     public class MonthSummariesResponse {
         public MonthSummariesResponseData Data { get; set; }
 

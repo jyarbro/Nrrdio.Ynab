@@ -1,4 +1,4 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Api.Categories {
+﻿namespace Nrrdio.Ynab.Client.Models.Responses.Categories {
     public class SaveCategoryResponse {
         public SaveCategoryResponseData Data { get; set; }
 

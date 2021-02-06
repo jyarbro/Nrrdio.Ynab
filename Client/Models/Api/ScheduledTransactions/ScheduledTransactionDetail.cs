@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Api.ScheduledTransactions {
+namespace Nrrdio.Ynab.Client.Models.Responses.ScheduledTransactions {
     public class ScheduledTransactionDetail {
         public string Id { get; set; }
 

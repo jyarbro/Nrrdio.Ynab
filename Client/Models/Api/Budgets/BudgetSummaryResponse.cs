@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Budgets {
+namespace Nrrdio.Ynab.Client.Models.Responses.Budgets {
     public class BudgetSummaryResponse {
         public BudgetSummaryResponseData Data { get; set; }
 

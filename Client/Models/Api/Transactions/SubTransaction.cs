@@ -1,7 +1,7 @@
 ﻿using Nrrdio.Ynab.Client.Helpers.Json;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Transactions {
+namespace Nrrdio.Ynab.Client.Models.Responses.Transactions {
     public class SubTransaction {
         public string Id { get; set; }
         public string TransactionId { get; set; }

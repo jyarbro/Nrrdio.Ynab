@@ -1,7 +1,7 @@
 ﻿using Nrrdio.Ynab.Client.Helpers.Json;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Api.ScheduledTransactions {
+namespace Nrrdio.Ynab.Client.Models.Responses.ScheduledTransactions {
     public class ScheduledSubTransaction {
         public string Id { get; set; }
         public string ScheduledTransactionId { get; set; }

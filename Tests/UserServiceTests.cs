@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Nrrdio.Utilities.Web.Query;
-using Nrrdio.Ynab.Client.Models.Api.Users;
+using Nrrdio.Ynab.Client.Models.Responses.Users;
 using Nrrdio.Ynab.Client.Services;
 using Nrrdio.Ynab.Client.Services.Contracts;
 using System.Text.Json;

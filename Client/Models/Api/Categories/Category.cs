@@ -3,7 +3,7 @@ using Nrrdio.Ynab.Client.Options;
 using System;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Categories {
+namespace Nrrdio.Ynab.Client.Models.Responses.Categories {
     public class Category {
         public string Id { get; set; }
         public string CategoryGroupId { get; set; }

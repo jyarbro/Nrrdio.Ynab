@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nrrdio.Utilities.Web.Query;
-using Nrrdio.Ynab.Client.Models.Api.Payees;
-using Nrrdio.Ynab.Client.Models.Api.Users;
+using Nrrdio.Ynab.Client.Models.Responses.Payees;
+using Nrrdio.Ynab.Client.Models.Responses.Users;
 using System.Text.Json;
 
 namespace Tests {

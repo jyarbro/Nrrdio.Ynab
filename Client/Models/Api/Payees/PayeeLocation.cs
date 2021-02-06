@@ -1,4 +1,4 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Api.Payees {
+﻿namespace Nrrdio.Ynab.Client.Models.Responses.Payees {
     public class PayeeLocation {
         public string Id { get; set; }
         public string PayeeId { get; set; }

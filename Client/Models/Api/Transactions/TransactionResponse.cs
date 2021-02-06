@@ -1,4 +1,4 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Api.Transactions {
+﻿namespace Nrrdio.Ynab.Client.Models.Responses.Transactions {
     public class TransactionResponse {
         public TransactionResponseData Data { get; set; }
 

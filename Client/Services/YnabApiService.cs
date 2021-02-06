@@ -1,7 +1,7 @@
 ﻿using Nrrdio.Utilities.Web;
 using Nrrdio.Utilities.Web.Models.Errors;
 using Nrrdio.Utilities.Web.Query;
-using Nrrdio.Ynab.Client.Models.Api.Errors;
+using Nrrdio.Ynab.Client.Models.Responses.Errors;
 using Nrrdio.Ynab.Client.Services.Contracts;
 using System;
 using System.Text.Json;

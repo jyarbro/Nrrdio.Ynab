@@ -1,8 +1,8 @@
-﻿using Nrrdio.Ynab.Client.Models.Api.Accounts;
+﻿using Nrrdio.Ynab.Client.Models.Responses.Accounts;
 using System;
 using System.Collections.Generic;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Budgets {
+namespace Nrrdio.Ynab.Client.Models.Responses.Budgets {
     public class BudgetSummary {
         public string Id { get; set; }
         public string Name { get; set; }

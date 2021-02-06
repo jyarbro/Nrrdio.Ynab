@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Nrrdio.Ynab.Client.Models.Api.ScheduledTransactions {
+namespace Nrrdio.Ynab.Client.Models.Responses.ScheduledTransactions {
     public class ScheduledTransactionsResponse {
         public ScheduledTransactionsResponseData Data { get; set; }
 

@@ -2,7 +2,7 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Months {
+namespace Nrrdio.Ynab.Client.Models.Responses.Months {
     public class MonthSummary {
         public DateTime Month { get; set; }
         public string Note { get; set; }

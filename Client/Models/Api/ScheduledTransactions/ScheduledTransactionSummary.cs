@@ -3,7 +3,7 @@ using Nrrdio.Ynab.Client.Options;
 using System;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Api.ScheduledTransactions {
+namespace Nrrdio.Ynab.Client.Models.Responses.ScheduledTransactions {
     public class ScheduledTransactionSummary {
         public string Id { get; set; }
 

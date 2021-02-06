@@ -3,7 +3,7 @@ using Nrrdio.Ynab.Client.Options;
 using System;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Transactions {
+namespace Nrrdio.Ynab.Client.Models.Responses.Transactions {
     public class TransactionSummary {
         public string Id { get; set; }
 

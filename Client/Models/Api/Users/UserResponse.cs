@@ -1,9 +1,9 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Api.Users {
+﻿namespace Nrrdio.Ynab.Client.Models.Responses.Users {
     public class UserResponse {
-        public UserResponseData Data { get; set; }
+        public UserResponseData? Data { get; set; }
 
         public class UserResponseData {
-            public User User { get; set; }
+            public User? User { get; set; }
         }
     }
 

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Transactions {
+namespace Nrrdio.Ynab.Client.Models.Responses.Transactions {
     public class TransactionDetail {
         public string Id { get; set; }
 

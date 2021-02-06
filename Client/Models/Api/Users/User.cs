@@ -1,5 +1,5 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Api.Users {
+﻿namespace Nrrdio.Ynab.Client.Models.Responses.Users {
     public class User {
-        public string Id { get; set; }
+        public string? Id { get; set; }
     }
 }

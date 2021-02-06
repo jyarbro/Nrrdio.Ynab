@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Nrrdio.Ynab.Client.Models.Api.Payees {
+namespace Nrrdio.Ynab.Client.Models.Responses.Payees {
     public class PayeesResponse {
         public PayeesResponseData Data { get; set; }
 
