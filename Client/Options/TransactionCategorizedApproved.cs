@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 
 namespace Nrrdio.Ynab.Client.Options {
-    public enum TransactionsQueryType {
+    public enum TransactionCategorizedApproved {
         [EnumMember(Value = "uncategorized")]
         Uncategorized,
 
