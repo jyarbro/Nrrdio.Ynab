@@ -1,4 +1,6 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Responses.Users {
+﻿using Nrrdio.Ynab.Client.Models.Data.Users;
+
+namespace Nrrdio.Ynab.Client.Models.Responses.Users {
     public class UserResponse {
         public UserResponseData? Data { get; set; }
 

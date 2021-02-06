@@ -1,4 +1,6 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Responses.Budgets {
+﻿using Nrrdio.Ynab.Client.Models.Data.Budgets;
+
+namespace Nrrdio.Ynab.Client.Models.Responses.Budgets {
     public class BudgetDetailResponse {
         public BudgetDetailResponseData? Data { get; set; }
 

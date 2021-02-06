@@ -1,4 +1,6 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Responses.Payees {
+﻿using Nrrdio.Ynab.Client.Models.Data.Payees;
+
+namespace Nrrdio.Ynab.Client.Models.Responses.Payees {
     public class PayeeLocationResponse {
         public PayeeLocationResponseData? Data { get; set; }
 

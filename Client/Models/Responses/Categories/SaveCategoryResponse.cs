@@ -1,4 +1,6 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Responses.Categories {
+﻿using Nrrdio.Ynab.Client.Models.Data.Categories;
+
+namespace Nrrdio.Ynab.Client.Models.Responses.Categories {
     public class SaveCategoryResponse {
         public SaveCategoryResponseData? Data { get; set; }
 

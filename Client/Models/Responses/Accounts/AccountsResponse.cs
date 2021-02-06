@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Nrrdio.Ynab.Client.Models.Data.Accounts;
+using System.Collections.Generic;
 
 namespace Nrrdio.Ynab.Client.Models.Responses.Accounts {
     public class AccountsResponse {

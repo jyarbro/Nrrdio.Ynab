@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Nrrdio.Ynab.Client.Models.Data.Categories;
+using System.Collections.Generic;
 
 namespace Nrrdio.Ynab.Client.Models.Responses.Categories {
     public class CategoriesResponse {

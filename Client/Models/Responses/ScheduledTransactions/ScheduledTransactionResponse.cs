@@ -1,4 +1,6 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Responses.ScheduledTransactions {
+﻿using Nrrdio.Ynab.Client.Models.Data.ScheduledTransactions;
+
+namespace Nrrdio.Ynab.Client.Models.Responses.ScheduledTransactions {
     public class ScheduledTransactionResponse {
         public ScheduledTransactionResponseData? Data { get; set; }
 

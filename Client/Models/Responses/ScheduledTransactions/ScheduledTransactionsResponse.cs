@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Nrrdio.Ynab.Client.Models.Data.ScheduledTransactions;
+using System.Collections.Generic;
 
 namespace Nrrdio.Ynab.Client.Models.Responses.ScheduledTransactions {
     public class ScheduledTransactionsResponse {
