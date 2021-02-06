@@ -6,6 +6,7 @@ using Nrrdio.Ynab.Client.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Nrrdio.Ynab.Client.Models.Data.Transactions;
 
 namespace Nrrdio.Ynab.Client.Services {
     public class TransactionsService {
@@ -38,7 +39,11 @@ namespace Nrrdio.Ynab.Client.Services {
                 response = await Ynab.GetRequest<TransactionsResponse>(url, query);
             }
 
-            return response?.Data?.Transactions;
+            if (response?.Data?.Transactions is null) {
+                throw new Exception("Unexpected null response from API.");
+            }
+
+            return response.Data.Transactions;
         }
 
         public async Task<TransactionDetail> GetTransaction(TransactionQuery query) {
@@ -56,6 +61,11 @@ namespace Nrrdio.Ynab.Client.Services {
             }
 
             var response = await Ynab.GetRequest<TransactionResponse>(url);
+
+            if (response?.Data?.Transaction is null) {
+                throw new Exception("Unexpected null response from API.");
+            }
+
             return response.Data.Transaction;
         }
     }

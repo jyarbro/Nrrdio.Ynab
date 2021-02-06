@@ -1,7 +1,9 @@
 ﻿using App.Models.Options;
 using Microsoft.Extensions.Options;
+using Nrrdio.Ynab.Client.Models.Data.Users;
 using Nrrdio.Ynab.Client.Models.Responses.Users;
 using Nrrdio.Ynab.Client.Services.Contracts;
+using System;
 using System.Threading.Tasks;
 
 namespace Nrrdio.Ynab.Client.Services {
@@ -19,7 +21,12 @@ namespace Nrrdio.Ynab.Client.Services {
 
         public async Task<User> GetUser() {
             var response = await Ynab.GetRequest<UserResponse>(ResourceUrl);
-            return response?.Data?.User;
+
+            if (response?.Data?.User is null) {
+                throw new Exception("Unexpected response returned from API.");
+            }
+
+            return response.Data.User;
         }
     }
 }

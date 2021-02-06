@@ -17,7 +17,7 @@ namespace Nrrdio.Ynab.Client.Services {
             WebClient = webClient;
         }
 
-        public async Task<T> GetRequest<T>(string url) {
+        public async Task<T?> GetRequest<T>(string url) {
             var result = await WebClient.DownloadStringSafe(url);
 
             try {
@@ -27,19 +27,29 @@ namespace Nrrdio.Ynab.Client.Services {
             catch (JsonException) {
                 var error = JsonSerializer.Deserialize<ErrorResponse>(result);
 
-                var httpErrorType = HttpErrorSelector.Get(error.Error.Id);
+                if (error?.Error is null) {
+                    error = new ErrorResponse {
+                        Error = new Models.Data.Errors.ErrorDetail {
+                            Id = 500,
+                            Detail = "Unexpected error occurred",
+                            Name = "Internal error"
+                        }
+                    };
+                }
+
+                var httpErrorType = HttpErrorSelector.Get(error.Error.Id ?? 500);
 
                 var httpError = Activator.CreateInstance(httpErrorType, $"{error.Error.Name} ({error.Error.Id}): {error.Error.Detail}");
 
                 if (httpError is HttpException) {
-                    throw httpError as HttpException;
+                    throw (HttpException) httpError;
                 }
 
                 throw new Exception("No suitable HttpException type matched the request error.", new Exception($"{error.Error.Name} ({error.Error.Id}): {error.Error.Detail}"));
             }
         }
 
-        public async Task<T> GetRequest<T>(string url, object queryParameters) {
+        public async Task<T?> GetRequest<T>(string url, object queryParameters) {
             if (queryParameters is not null) {
                 var query = QuerySerializer.Serialize(queryParameters, new PascalToSnakeNamingPolicy());
 
