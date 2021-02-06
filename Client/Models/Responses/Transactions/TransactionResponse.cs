@@ -2,10 +2,6 @@
 
 namespace Nrrdio.Ynab.Client.Models.Responses.Transactions {
     public class TransactionResponse {
-        public TransactionResponseData? Data { get; set; }
-
-        public class TransactionResponseData {
-            public TransactionDetail? Transaction { get; set; }
-        }
+        public TransactionDetail? Data { get; set; }
     }
 }
