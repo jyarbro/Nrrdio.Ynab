@@ -8,6 +8,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "App\App.csproj", "{1FB5ACEA-B3BE-4E7D-B45B-21CAF4F92155}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EBABBB6A-FCF7-4DAA-A957-18949E8EAC9A}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git Config", "Git Config", "{DA6D270E-2587-4FD1-A2B0-81F22F73DF4F}"
 	ProjectSection(SolutionItems) = preProject
@@ -23,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nrrdio.Utilities.Web", "Nrr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Macross.Json.Extensions", "MacrossSoftware\ClassLibraries\Macross.Json.Extensions\Code\Macross.Json.Extensions.csproj", "{EFBDC4D7-D219-4608-B197-CC36F07CC6BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{2BB51DE2-8336-407C-9537-08C936875C1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{2BB51DE2-8336-407C-9537-08C936875C1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
