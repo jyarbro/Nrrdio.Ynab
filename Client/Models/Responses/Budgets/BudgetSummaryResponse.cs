@@ -2,11 +2,11 @@
 
 namespace Nrrdio.Ynab.Client.Models.Responses.Budgets {
     public class BudgetSummaryResponse {
-        public BudgetSummaryResponseData Data { get; set; }
+        public BudgetSummaryResponseData? Data { get; set; }
 
         public class BudgetSummaryResponseData {
-            public List<BudgetSummary> Budgets { get; set; }
-            public BudgetSummary DefaultBudget { get; set; }
+            public List<BudgetSummary>? Budgets { get; set; }
+            public BudgetSummary? DefaultBudget { get; set; }
         }
     }
 }

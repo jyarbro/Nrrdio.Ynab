@@ -2,10 +2,10 @@
 
 namespace Nrrdio.Ynab.Client.Models.Responses.Transactions {
     public class HybridTransactionsResponse {
-        public HybridTransactionsResponseData Data { get; set; }
+        public HybridTransactionsResponseData? Data { get; set; }
 
         public class HybridTransactionsResponseData {
-            public List<HybridTransaction> Transactions { get; set; }
+            public List<HybridTransaction>? Transactions { get; set; }
         }
     }
 }

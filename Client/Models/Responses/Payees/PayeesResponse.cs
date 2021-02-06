@@ -2,15 +2,15 @@
 
 namespace Nrrdio.Ynab.Client.Models.Responses.Payees {
     public class PayeesResponse {
-        public PayeesResponseData Data { get; set; }
+        public PayeesResponseData? Data { get; set; }
 
         public class PayeesResponseData {
-            public List<Payee> Payees { get; set; }
+            public List<Payee>? Payees { get; set; }
 
             /// <summary>
             /// Used for delta requests
             /// </summary>
-            public long ServerKnowledge { get; set; }
+            public long? ServerKnowledge { get; set; }
         }
     }
 

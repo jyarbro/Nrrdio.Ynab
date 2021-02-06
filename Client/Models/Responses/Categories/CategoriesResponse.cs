@@ -2,15 +2,15 @@
 
 namespace Nrrdio.Ynab.Client.Models.Responses.Categories {
     public class CategoriesResponse {
-        public CategoriesResponse Data { get; set; }
+        public CategoriesResponse? Data { get; set; }
 
         public class CategoriesResponseData {
-            public List<CategoryGroupWithCategories> CategoryGroups { get; set; }
+            public List<CategoryGroupWithCategories>? CategoryGroups { get; set; }
 
             /// <summary>
             /// Used for delta requests
             /// </summary>
-            public long ServerKnowledge { get; set; }
+            public long? ServerKnowledge { get; set; }
         }
     }
 }

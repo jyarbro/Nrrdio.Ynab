@@ -1,9 +1,9 @@
 ﻿namespace Nrrdio.Ynab.Client.Models.Responses.Payees {
     public class PayeeResponse {
-        public PayeeResponseData Data { get; set; }
+        public PayeeResponseData? Data { get; set; }
 
         public class PayeeResponseData {
-            public Payee Payee { get; set; }
+            public Payee? Payee { get; set; }
         }
     }
 

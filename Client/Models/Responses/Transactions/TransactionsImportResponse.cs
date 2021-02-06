@@ -2,10 +2,10 @@
 
 namespace Nrrdio.Ynab.Client.Models.Responses.Transactions {
     public class TransactionsImportResponse {
-        public TransactionsImportResponseData Data { get; set; }
+        public TransactionsImportResponseData? Data { get; set; }
 
         public class TransactionsImportResponseData {
-            public List<string> TransactionIds { get; set; }
+            public List<string>? TransactionIds { get; set; }
         }
     }
 }

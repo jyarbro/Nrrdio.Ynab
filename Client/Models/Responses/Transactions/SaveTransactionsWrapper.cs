@@ -2,7 +2,7 @@
 
 namespace Nrrdio.Ynab.Client.Models.Responses.Transactions {
     public class SaveTransactionsWrapper {
-        public SaveTransaction Transaction { get; set; }
-        public List<SaveTransaction> Transactions { get; set; }
+        public SaveTransaction? Transaction { get; set; }
+        public List<SaveTransaction>? Transactions { get; set; }
     }
 }
