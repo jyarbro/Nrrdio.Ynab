@@ -11,7 +11,6 @@ using Nrrdio.Ynab.Client.Models.Data.Transactions;
 namespace Nrrdio.Ynab.Client.Services {
     public class TransactionsService {
         YnabHostOptions HostOptions { get; init; }
-        string ResourceUrl { get; init; }
         IYnabApiService Ynab { get; init; }
 
         public TransactionsService(
@@ -19,15 +18,16 @@ namespace Nrrdio.Ynab.Client.Services {
             IYnabApiService apiService
         ) {
             HostOptions = hostOptions.Value;
-            ResourceUrl = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions/{{1}}";
             Ynab = apiService;
         }
 
-        public async Task<List<TransactionDetail>> GetTransactions(TransactionsQuery query = null) {
+        public async Task<List<TransactionDetail>> GetTransactions(TransactionsQuery? query = null) {
+            var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions/{{1}}";
+            
             TransactionsResponse response;
 
             if (query is null) {
-                var url = string.Format(ResourceUrl, HostOptions.BudgetId);
+                url = string.Format(url, HostOptions.BudgetId);
                 response = await Ynab.GetRequest<TransactionsResponse>(url);
             }
             else {
@@ -35,7 +35,7 @@ namespace Nrrdio.Ynab.Client.Services {
                     query.BudgetId = HostOptions.BudgetId;
                 }
 
-                var url = string.Format(ResourceUrl, query.BudgetId);
+                url = string.Format(url, query.BudgetId);
                 response = await Ynab.GetRequest<TransactionsResponse>(url, query);
             }
 
@@ -51,22 +51,22 @@ namespace Nrrdio.Ynab.Client.Services {
                 throw new ArgumentNullException();
             }
 
-            string url;
+            var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions";
 
             if (query.BudgetId is { Length: >0 }) {
-                url = string.Format(ResourceUrl, HostOptions.BudgetId, query.TransactionId);
+                url = string.Format(url, HostOptions.BudgetId, query.TransactionId);
             }
             else {
-                url = string.Format(ResourceUrl, query.BudgetId, query.TransactionId);
+                url = string.Format(url, query.BudgetId, query.TransactionId);
             }
 
             var response = await Ynab.GetRequest<TransactionResponse>(url);
 
-            if (response?.Data?.Transaction is null) {
+            if (response?.Data is null) {
                 throw new Exception("Unexpected null response returned from API.");
             }
 
-            return response.Data.Transaction;
+            return response.Data;
         }
     }
 }

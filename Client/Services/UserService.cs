@@ -8,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace Nrrdio.Ynab.Client.Services {
     public class UserService {
-        string ResourceUrl { get; init; }
+        YnabHostOptions HostOptions { get; init; }
         IYnabApiService Ynab { get; init; }
 
         public UserService(
             IOptions<YnabHostOptions> hostOptions,
             IYnabApiService apiService
         ) {
-            ResourceUrl = $"{hostOptions.Value.EndPoint}/user";
+            HostOptions = hostOptions.Value;
             Ynab = apiService;
         }
 
         public async Task<User> GetUser() {
-            var response = await Ynab.GetRequest<UserResponse>(ResourceUrl);
+            var url = $"{HostOptions.EndPoint}/user";
+            var response = await Ynab.GetRequest<UserResponse>(url);
 
             if (response?.Data?.User is null) {
                 throw new Exception("Unexpected null response returned from API.");
