@@ -40,7 +40,7 @@ namespace Nrrdio.Ynab.Client.Services {
             }
 
             if (response?.Data?.Transactions is null) {
-                throw new Exception("Unexpected null response from API.");
+                throw new Exception("Unexpected null response returned from API.");
             }
 
             return response.Data.Transactions;
@@ -63,7 +63,7 @@ namespace Nrrdio.Ynab.Client.Services {
             var response = await Ynab.GetRequest<TransactionResponse>(url);
 
             if (response?.Data?.Transaction is null) {
-                throw new Exception("Unexpected null response from API.");
+                throw new Exception("Unexpected null response returned from API.");
             }
 
             return response.Data.Transaction;

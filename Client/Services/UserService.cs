@@ -23,7 +23,7 @@ namespace Nrrdio.Ynab.Client.Services {
             var response = await Ynab.GetRequest<UserResponse>(ResourceUrl);
 
             if (response?.Data?.User is null) {
-                throw new Exception("Unexpected response returned from API.");
+                throw new Exception("Unexpected null response returned from API.");
             }
 
             return response.Data.User;

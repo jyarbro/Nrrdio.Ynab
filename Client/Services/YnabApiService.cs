@@ -31,8 +31,8 @@ namespace Nrrdio.Ynab.Client.Services {
                     error = new ErrorResponse {
                         Error = new Models.Data.Errors.ErrorDetail {
                             Id = 500,
-                            Detail = "Unexpected error occurred",
-                            Name = "Internal error"
+                            Detail = "An unexpected error occurred",
+                            Name = "Error processing API error details"
                         }
                     };
                 }
