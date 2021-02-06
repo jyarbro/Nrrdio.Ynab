@@ -22,7 +22,7 @@ namespace Nrrdio.Ynab.Client.Services {
         }
 
         public async Task<List<TransactionDetail>> GetTransactions(TransactionsQuery? query = null) {
-            var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions/{{1}}";
+            var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions";
             
             TransactionsResponse response;
 
@@ -51,7 +51,7 @@ namespace Nrrdio.Ynab.Client.Services {
                 throw new ArgumentNullException();
             }
 
-            var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions";
+            var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions/{{1}}";
 
             if (query.BudgetId is { Length: >0 }) {
                 url = string.Format(url, HostOptions.BudgetId, query.TransactionId);
