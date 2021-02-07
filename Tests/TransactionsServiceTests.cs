@@ -2,13 +2,13 @@ using App.Models.Options;
 using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Nrrdio.Utilities.Web.Query;
 using Nrrdio.Ynab.Client.Models.Responses.Transactions;
 using Nrrdio.Ynab.Client.Models.Queries.Transactions;
 using Nrrdio.Ynab.Client.Services;
 using Nrrdio.Ynab.Client.Services.Contracts;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Nrrdio.Utilities.Web.Requests;
 
 namespace Tests {
     [TestClass]
