@@ -2,8 +2,8 @@
 
 namespace Nrrdio.Ynab.Client.Services.Contracts {
     public interface IYnabApiService {
-        Task<T?> GetRequest<T>(string url);
-        Task<T?> GetRequest<T>(string url, object queryParameters);
-        Task<T> PostRequest<T>(string url, object requestData);
+        Task<T?> Download<T>(string url);
+        Task<T?> Download<T>(string url, object queryParameters);
+        Task<T> Upload<T>(string url, object requestData, string method);
     }
 }

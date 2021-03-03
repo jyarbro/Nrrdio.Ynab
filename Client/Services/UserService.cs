@@ -21,7 +21,7 @@ namespace Nrrdio.Ynab.Client.Services {
 
         public async Task<User> GetUser() {
             var url = $"{HostOptions.EndPoint}/user";
-            var response = await Ynab.GetRequest<UserResponse>(url);
+            var response = await Ynab.Download<UserResponse>(url);
 
             if (response?.Data?.User is null) {
                 throw new Exception("Unexpected null response returned from API.");

@@ -9,6 +9,7 @@ using Nrrdio.Ynab.Client.Options;
 using Nrrdio.Ynab.Client.Services;
 using Nrrdio.Ynab.Client.Services.Contracts;
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -46,7 +47,7 @@ namespace Tests {
             mockOptions.Setup(mock => mock.Value).Returns(new YnabHostOptions { EndPoint = string.Empty, BudgetId = "zxcv3214-zxcv-3214-zxcv-3214zxcv3214" });
 
             var mockApiService = new Mock<IYnabApiService>();
-            mockApiService.Setup(mock => mock.GetRequest<TransactionResponse>(It.IsAny<string>())).ReturnsAsync(response);
+            mockApiService.Setup(mock => mock.Download<TransactionResponse>(It.IsAny<string>())).ReturnsAsync(response);
 
             var service = new TransactionsService(mockOptions.Object, mockApiService.Object);
             var result = await service.GetTransaction(new TransactionRequest {
@@ -114,7 +115,7 @@ namespace Tests {
             mockOptions.Setup(mock => mock.Value).Returns(new YnabHostOptions { EndPoint = string.Empty, BudgetId = "zxcv3214-zxcv-3214-zxcv-3214zxcv3214" });
 
             var mockApiService = new Mock<IYnabApiService>();
-            mockApiService.Setup(mock => mock.GetRequest<TransactionsResponse>(It.IsAny<string>())).ReturnsAsync(response);
+            mockApiService.Setup(mock => mock.Download<TransactionsResponse>(It.IsAny<string>())).ReturnsAsync(response);
 
             var service = new TransactionsService(mockOptions.Object, mockApiService.Object);
             var result = await service.GetTransactions();
@@ -125,7 +126,7 @@ namespace Tests {
         }
 
         [TestMethod]
-        public async Task SaveTransaction() {
+        public async Task CreateTransaction() {
             var response = JsonSerializer.Deserialize<SaveTransactionsResponse>(@"
                 {
                     ""data"": {
@@ -161,7 +162,7 @@ namespace Tests {
             mockOptions.Setup(mock => mock.Value).Returns(new YnabHostOptions { EndPoint = string.Empty, BudgetId = "zxcv3214-zxcv-3214-zxcv-3214zxcv3214" });
 
             var mockApiService = new Mock<IYnabApiService>();
-            mockApiService.Setup(mock => mock.PostRequest<SaveTransactionsResponse>(It.IsAny<string>(), It.IsAny<SaveTransactionsWrapper>())).ReturnsAsync(response);
+            mockApiService.Setup(mock => mock.Upload<SaveTransactionsResponse>(It.IsAny<string>(), It.IsAny<SaveTransactionsWrapper>(), It.IsAny<string>())).ReturnsAsync(response);
 
             var service = new TransactionsService(mockOptions.Object, mockApiService.Object);
             var result = await service.CreateTransactions(new SaveTransactionsRequest {
@@ -186,6 +187,76 @@ namespace Tests {
             Assert.IsNotNull(result.Data);
             Assert.IsNotNull(result.Data.Transaction);
             Assert.AreEqual("asdf1234-asdf-1234-asdf-1234asdf1234", result.Data.Transaction.Id);
+        }
+
+        [TestMethod]
+        public async Task UpdateTransaction() {
+            var response = JsonSerializer.Deserialize<SaveTransactionsResponse>(@"
+                {
+                    ""data"": {
+                        ""transaction_ids"": [
+                            ""asdf1234-asdf-1234-asdf-1234asdf1234""
+                        ],
+                        ""duplicate_import_ids"": [],
+                        ""transactions"": [
+                            {
+                                ""id"": ""asdf1234-asdf-1234-asdf-1234asdf1234"",
+                                ""date"": ""1999-12-31"",
+                                ""amount"": 20,
+                                ""memo"": null,
+                                ""cleared"": ""reconciled"",
+                                ""approved"": true,
+                                ""flag_color"": null,
+                                ""account_id"": ""asdf1234-asdf-1234-asdf-1234asdf1234"",
+                                ""account_name"": ""Asdf 1234"",
+                                ""payee_id"": ""asdf1234-asdf-1234-asdf-1234asdf1234"",
+                                ""payee_name"": ""Asdf 1234"",
+                                ""category_id"": ""asdf1234-asdf-1234-asdf-1234asdf1234"",
+                                ""category_name"": ""Asdf 1234"",
+                                ""transfer_account_id"": null,
+                                ""transfer_transaction_id"": null,
+                                ""matched_transaction_id"": null,
+                                ""import_id"": null,
+                                ""deleted"": false,
+                                ""subtransactions"": []
+                            }
+                        ],
+                        ""server_knowledge"": 1234
+                    }
+                }", PascalToSnakeNamingPolicy.Options);
+
+            var mockOptions = new Mock<IOptions<YnabHostOptions>>();
+            mockOptions.Setup(mock => mock.Value).Returns(new YnabHostOptions { EndPoint = string.Empty, BudgetId = "zxcv3214-zxcv-3214-zxcv-3214zxcv3214" });
+
+            var mockApiService = new Mock<IYnabApiService>();
+            mockApiService.Setup(mock => mock.Upload<SaveTransactionsResponse>(It.IsAny<string>(), It.IsAny<UpdateTransactionsWrapper>(), It.IsAny<string>())).ReturnsAsync(response);
+
+            var service = new TransactionsService(mockOptions.Object, mockApiService.Object);
+            var result = await service.UpdateTransactions(new UpdateTransactionsRequest {
+                Data = new UpdateTransactionsWrapper {
+                    Transactions = new List<UpdateTransaction> {
+                        new UpdateTransaction {
+                            Id = "asdf1234-asdf-1234-asdf-1234asdf1234",
+                            AccountId = "asdf1234-asdf-1234-asdf-1234asdf1234",
+                            Amount = 20,
+                            Approved = true,
+                            CategoryId = "asdf1234-asdf-1234-asdf-1234asdf1234",
+                            Cleared = ClearedState.Reconciled,
+                            Date = DateTime.Now,
+                            FlagColor = null,
+                            ImportId = "YNAB:1234:1999-12-31:1",
+                            Memo = null,
+                            PayeeId = "asdf1234-asdf-1234-asdf-1234asdf1234",
+                            PayeeName = "Asdf 1234"
+                        }
+                    }
+                }
+            });
+
+            Assert.IsNotNull(result);
+            Assert.IsNotNull(result.Data);
+            Assert.AreEqual(1, result.Data.Transactions.Count);
+            Assert.AreEqual("asdf1234-asdf-1234-asdf-1234asdf1234", result.Data.TransactionIds[0]);
         }
     }
 }

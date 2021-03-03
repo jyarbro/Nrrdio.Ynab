@@ -28,7 +28,7 @@ namespace Nrrdio.Ynab.Client.Services {
 
             if (request is null) {
                 url = string.Format(url, HostOptions.BudgetId);
-                response = await Ynab.GetRequest<TransactionsResponse>(url);
+                response = await Ynab.Download<TransactionsResponse>(url);
             }
             else {
                 if (request.BudgetId is not { Length: > 0 }) {
@@ -36,7 +36,7 @@ namespace Nrrdio.Ynab.Client.Services {
                 }
 
                 url = string.Format(url, request.BudgetId);
-                response = await Ynab.GetRequest<TransactionsResponse>(url, request);
+                response = await Ynab.Download<TransactionsResponse>(url, request);
             }
 
             if (response?.Data?.Transactions is null) {
@@ -60,7 +60,7 @@ namespace Nrrdio.Ynab.Client.Services {
                 url = string.Format(url, request.BudgetId, request.TransactionId);
             }
 
-            var response = await Ynab.GetRequest<TransactionResponse>(url);
+            var response = await Ynab.Download<TransactionResponse>(url);
 
             if (response?.Data is null) {
                 throw new Exception("Unexpected null response returned from API.");
@@ -87,7 +87,24 @@ namespace Nrrdio.Ynab.Client.Services {
                 url = string.Format(url, HostOptions.BudgetId);
             }
 
-            return await Ynab.PostRequest<SaveTransactionsResponse>(url, request.Data);
+            return await Ynab.Upload<SaveTransactionsResponse>(url, request.Data, "POST");
+        }
+
+        public async Task<SaveTransactionsResponse> UpdateTransactions(UpdateTransactionsRequest request) {
+            if (request?.Data?.Transactions is null) {
+                throw new ArgumentNullException();
+            }
+
+            var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions";
+
+            if (request.BudgetId is { Length: > 0 }) {
+                url = string.Format(url, request.BudgetId);
+            }
+            else {
+                url = string.Format(url, HostOptions.BudgetId);
+            }
+
+            return await Ynab.Upload<SaveTransactionsResponse>(url, request.Data, "PATCH");
         }
     }
 }

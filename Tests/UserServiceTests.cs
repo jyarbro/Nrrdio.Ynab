@@ -27,7 +27,7 @@ namespace Tests {
             mockOptions.Setup(mock => mock.Value).Returns(new YnabHostOptions { EndPoint = string.Empty });
 
             var mockApiService = new Mock<IYnabApiService>();
-            mockApiService.Setup(mock => mock.GetRequest<UserResponse>(It.IsAny<string>())).ReturnsAsync(response);
+            mockApiService.Setup(mock => mock.Download<UserResponse>(It.IsAny<string>())).ReturnsAsync(response);
 
             var service = new UserService(mockOptions.Object, mockApiService.Object);
             var result = await service.GetUser();
