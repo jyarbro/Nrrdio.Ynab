@@ -3,4 +3,4 @@
 	url = https://github.com/jyarbro/Nrrdio.Utilities.git
 [submodule "core"]
 	path = MacrossSoftware
-	url = https://github.com/Macross-Software/core.git
+	url = https://github.com/jyarbro/MacrossSoftware-core.git
