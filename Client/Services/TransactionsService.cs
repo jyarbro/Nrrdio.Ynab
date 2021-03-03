@@ -21,22 +21,22 @@ namespace Nrrdio.Ynab.Client.Services {
             Ynab = apiService;
         }
 
-        public async Task<List<TransactionDetail>> GetTransactions(TransactionsQuery? query = null) {
+        public async Task<List<TransactionDetail>> GetTransactions(TransactionsRequest? request = null) {
             var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions";
 
-            TransactionsResponse response;
+            TransactionsResponse? response;
 
-            if (query is null) {
+            if (request is null) {
                 url = string.Format(url, HostOptions.BudgetId);
                 response = await Ynab.GetRequest<TransactionsResponse>(url);
             }
             else {
-                if (query.BudgetId is not { Length: > 0 }) {
-                    query.BudgetId = HostOptions.BudgetId;
+                if (request.BudgetId is not { Length: > 0 }) {
+                    request.BudgetId = HostOptions.BudgetId;
                 }
 
-                url = string.Format(url, query.BudgetId);
-                response = await Ynab.GetRequest<TransactionsResponse>(url, query);
+                url = string.Format(url, request.BudgetId);
+                response = await Ynab.GetRequest<TransactionsResponse>(url, request);
             }
 
             if (response?.Data?.Transactions is null) {
@@ -46,18 +46,18 @@ namespace Nrrdio.Ynab.Client.Services {
             return response.Data.Transactions;
         }
 
-        public async Task<TransactionDetail> GetTransaction(TransactionQuery query) {
-            if (query.TransactionId is not { Length: > 0 }) {
+        public async Task<TransactionDetail> GetTransaction(TransactionRequest request) {
+            if (request.TransactionId is not { Length: > 0 }) {
                 throw new ArgumentNullException();
             }
 
             var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions/{{1}}";
 
-            if (query.BudgetId is { Length: > 0 }) {
-                url = string.Format(url, HostOptions.BudgetId, query.TransactionId);
+            if (request.BudgetId is { Length: > 0 }) {
+                url = string.Format(url, HostOptions.BudgetId, request.TransactionId);
             }
             else {
-                url = string.Format(url, query.BudgetId, query.TransactionId);
+                url = string.Format(url, request.BudgetId, request.TransactionId);
             }
 
             var response = await Ynab.GetRequest<TransactionResponse>(url);
@@ -69,25 +69,25 @@ namespace Nrrdio.Ynab.Client.Services {
             return response.Data;
         }
 
-        public async Task<SaveTransactionsResponse> SaveTransactions(SaveTransactionsQuery query) {
-            if (query?.Data is null) {
+        public async Task<SaveTransactionsResponse> CreateTransactions(SaveTransactionsRequest request) {
+            if (request?.Data is null) {
                 throw new ArgumentNullException();
             }
 
-            if (query.Data.Transaction is not null && query.Data.Transactions is not null) {
+            if (request.Data.Transaction is not null && request.Data.Transactions is not null) {
                 throw new ArgumentException($"{nameof(SaveTransactionsWrapper.Transaction)} and {nameof(SaveTransactionsWrapper.Transactions)} cannot both be defined.");
             }
 
             var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions";
 
-            if (query.BudgetId is { Length: > 0 }) {
-                url = string.Format(url, query.BudgetId);
+            if (request.BudgetId is { Length: > 0 }) {
+                url = string.Format(url, request.BudgetId);
             }
             else {
                 url = string.Format(url, HostOptions.BudgetId);
             }
 
-            return await Ynab.PostRequest<SaveTransactionsResponse>(url, query.Data);
+            return await Ynab.PostRequest<SaveTransactionsResponse>(url, request.Data);
         }
     }
 }

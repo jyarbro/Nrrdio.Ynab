@@ -4,7 +4,7 @@ using System;
 using System.Text.Json.Serialization;
 
 namespace Nrrdio.Ynab.Client.Models.Requests.Transactions {
-    public class AccountTransactionsQuery {
+    public class AccountTransactionsRequest {
         /// <summary>
         /// The id of the budget. “last-used” can be used to specify the last used budget and “default” can be used if default budget selection is enabled (see: https://api.youneedabudget.com/#oauth-default-budget).
         /// </summary>

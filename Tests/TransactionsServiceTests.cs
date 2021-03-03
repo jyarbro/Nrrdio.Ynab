@@ -49,7 +49,7 @@ namespace Tests {
             mockApiService.Setup(mock => mock.GetRequest<TransactionResponse>(It.IsAny<string>())).ReturnsAsync(response);
 
             var service = new TransactionsService(mockOptions.Object, mockApiService.Object);
-            var result = await service.GetTransaction(new TransactionQuery {
+            var result = await service.GetTransaction(new TransactionRequest {
                 TransactionId = "asdf1234-asdf-1234-asdf-1234asdf1234"
             });
 
@@ -164,7 +164,7 @@ namespace Tests {
             mockApiService.Setup(mock => mock.PostRequest<SaveTransactionsResponse>(It.IsAny<string>(), It.IsAny<SaveTransactionsWrapper>())).ReturnsAsync(response);
 
             var service = new TransactionsService(mockOptions.Object, mockApiService.Object);
-            var result = await service.SaveTransactions(new SaveTransactionsQuery {
+            var result = await service.CreateTransactions(new SaveTransactionsRequest {
                 Data = new SaveTransactionsWrapper {
                     Transaction = new SaveTransaction {
                         AccountId = "asdf1234-asdf-1234-asdf-1234asdf1234",
