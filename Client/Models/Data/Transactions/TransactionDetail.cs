@@ -11,6 +11,7 @@ namespace Nrrdio.Ynab.Client.Models.Data.Transactions {
         /// <summary>
         /// The transaction date in ISO format (e.g. 2016-12-01)
         /// </summary>
+        [JsonConverter(typeof(IsoDateConverter))]
         public DateTime? Date { get; set; }
 
         [JsonConverter(typeof(MilliunitConverter))]
@@ -36,8 +37,13 @@ namespace Nrrdio.Ynab.Client.Models.Data.Transactions {
         public FlagColor? FlagColor { get; set; }
 
         public string? AccountId { get; set; }
+        public string? AccountName { get; set; }
+        
         public string? PayeeId { get; set; }
+        public string? PayeeName { get; set; }
+        
         public string? CategoryId { get; set; }
+        public string? CategoryName { get; set; }
 
         /// <summary>
         /// If a transfer transaction, the account to which it transfers
@@ -63,12 +69,6 @@ namespace Nrrdio.Ynab.Client.Models.Data.Transactions {
         /// Whether or not the transaction has been deleted. Deleted transactions will only be included in delta requests.
         /// </summary>
         public bool? Deleted { get; set; }
-
-        public string? AccountName { get; set; }
-
-        public string? PayeeName { get; set; }
-
-        public string? CategoryName { get; set; }
 
         /// <summary>
         /// If a split transaction, the subtransactions.

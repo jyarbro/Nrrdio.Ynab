@@ -11,6 +11,7 @@ namespace Nrrdio.Ynab.Client.Models.Requests.Transactions {
         /// <summary>
         /// The transaction date in ISO format (e.g. 2016-12-01). Future dates (scheduled transactions) are not permitted. Split transaction dates cannot be changed and if a different date is supplied it will be ignored.
         /// </summary>
+        [JsonConverter(typeof(IsoDateConverter))]
         public DateTime? Date { get; set; }
 
         /// <summary>

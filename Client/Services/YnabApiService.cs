@@ -1,6 +1,6 @@
 ﻿using Nrrdio.Utilities.Web;
 using Nrrdio.Utilities.Web.Models.Errors;
-using Nrrdio.Utilities.Web.Query;
+using Nrrdio.Utilities.Web.Requests;
 using Nrrdio.Ynab.Client.Models.Responses.Errors;
 using Nrrdio.Ynab.Client.Services.Contracts;
 using System;
@@ -62,6 +62,22 @@ namespace Nrrdio.Ynab.Client.Services {
             }
 
             return await GetRequest<T>(url);
+        }
+
+        public async Task<T> PostRequest<T>(string url, object requestData) {
+            var response = await WebClient.UploadJSObject(url, "POST", requestData);
+            var result = JsonSerializer.Deserialize<T>(response);
+
+            if (result is null) {
+                if (response.Length > 0) {
+                    throw new Exception("Unexpected error when posting request.");
+                }
+                else {
+                    throw new Exception("API returned an unexpected empty response.");
+                }
+            }
+
+            return result;
         }
     }
 }

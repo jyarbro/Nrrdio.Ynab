@@ -1,12 +1,12 @@
 ﻿using App.Models.Options;
 using Microsoft.Extensions.Options;
+using Nrrdio.Ynab.Client.Models.Data.Transactions;
+using Nrrdio.Ynab.Client.Models.Requests.Transactions;
 using Nrrdio.Ynab.Client.Models.Responses.Transactions;
-using Nrrdio.Ynab.Client.Models.Queries.Transactions;
 using Nrrdio.Ynab.Client.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nrrdio.Ynab.Client.Models.Data.Transactions;
 
 namespace Nrrdio.Ynab.Client.Services {
     public class TransactionsService {
@@ -23,7 +23,7 @@ namespace Nrrdio.Ynab.Client.Services {
 
         public async Task<List<TransactionDetail>> GetTransactions(TransactionsQuery? query = null) {
             var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions";
-            
+
             TransactionsResponse response;
 
             if (query is null) {
@@ -31,7 +31,7 @@ namespace Nrrdio.Ynab.Client.Services {
                 response = await Ynab.GetRequest<TransactionsResponse>(url);
             }
             else {
-                if (query.BudgetId is not { Length: >0 }) {
+                if (query.BudgetId is not { Length: > 0 }) {
                     query.BudgetId = HostOptions.BudgetId;
                 }
 
@@ -47,13 +47,13 @@ namespace Nrrdio.Ynab.Client.Services {
         }
 
         public async Task<TransactionDetail> GetTransaction(TransactionQuery query) {
-            if (query.TransactionId is not { Length: >0 }) {
+            if (query.TransactionId is not { Length: > 0 }) {
                 throw new ArgumentNullException();
             }
 
             var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions/{{1}}";
 
-            if (query.BudgetId is { Length: >0 }) {
+            if (query.BudgetId is { Length: > 0 }) {
                 url = string.Format(url, HostOptions.BudgetId, query.TransactionId);
             }
             else {
@@ -67,6 +67,27 @@ namespace Nrrdio.Ynab.Client.Services {
             }
 
             return response.Data;
+        }
+
+        public async Task<SaveTransactionsResponse> SaveTransactions(SaveTransactionsQuery query) {
+            if (query?.Data is null) {
+                throw new ArgumentNullException();
+            }
+
+            if (query.Data.Transaction is not null && query.Data.Transactions is not null) {
+                throw new ArgumentException($"{nameof(SaveTransactionsWrapper.Transaction)} and {nameof(SaveTransactionsWrapper.Transactions)} cannot both be defined.");
+            }
+
+            var url = $"{HostOptions.EndPoint}/budgets/{{0}}/transactions";
+
+            if (query.BudgetId is { Length: > 0 }) {
+                url = string.Format(url, query.BudgetId);
+            }
+            else {
+                url = string.Format(url, HostOptions.BudgetId);
+            }
+
+            return await Ynab.PostRequest<SaveTransactionsResponse>(url, query.Data);
         }
     }
 }

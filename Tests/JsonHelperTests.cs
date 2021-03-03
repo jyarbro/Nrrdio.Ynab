@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nrrdio.Utilities.Web.Query;
+using Nrrdio.Utilities.Web.Requests;
 using Nrrdio.Ynab.Client.Models.Responses.Payees;
 using Nrrdio.Ynab.Client.Models.Responses.Users;
 using System.Text.Json;
