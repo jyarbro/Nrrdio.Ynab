@@ -2,7 +2,7 @@
 using Nrrdio.Ynab.Client.Options;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Queries.Accounts {
+namespace Nrrdio.Ynab.Client.Models.Requests.Accounts {
     public class SaveAccount {
         /// <summary>
         /// The name of the account

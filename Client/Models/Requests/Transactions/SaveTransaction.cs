@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Queries.Transactions {
+namespace Nrrdio.Ynab.Client.Models.Requests.Transactions {
     public class SaveTransaction {
         public string? AccountId { get; set; }
 

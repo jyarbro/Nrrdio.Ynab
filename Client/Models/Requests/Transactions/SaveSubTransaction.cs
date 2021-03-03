@@ -1,7 +1,7 @@
 ﻿using Nrrdio.Ynab.Client.Helpers.Json;
 using System.Text.Json.Serialization;
 
-namespace Nrrdio.Ynab.Client.Models.Queries.Transactions {
+namespace Nrrdio.Ynab.Client.Models.Requests.Transactions {
     public class SaveSubTransaction {
         [JsonConverter(typeof(MilliunitConverter))]
         public decimal? Amount { get; set; }

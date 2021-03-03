@@ -1,4 +1,4 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Queries.Accounts {
+﻿namespace Nrrdio.Ynab.Client.Models.Requests.Accounts {
     public class SaveAccountWrapper {
         public SaveAccount? Account { get; set; }
     }

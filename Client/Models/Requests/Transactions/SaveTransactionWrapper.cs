@@ -1,4 +1,4 @@
-﻿namespace Nrrdio.Ynab.Client.Models.Queries.Transactions {
+﻿namespace Nrrdio.Ynab.Client.Models.Requests.Transactions {
     public class SaveTransactionWrapper {
         public SaveTransaction? Transaction { get; set; }
     }
