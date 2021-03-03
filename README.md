@@ -15,4 +15,4 @@ This is an incomplete manual implementation of the [YNAB API v1](https://api.you
 
 ---
 
-1: The Macross library is unfortunately encumbered by [the MIT license](https://github.com/Macross-Software/core/blob/develop/LICENSE.txt), but is necessary due to a bug in how the System.Text.Json library implements enum deserialization. Eventually it will be removed.
+1: The Macross library is unfortunately encumbered by [the MIT license](https://github.com/Macross-Software/core/blob/develop/LICENSE.txt), but is necessary due to a bug / missing feature in how the System.Text.Json.Serialization library [implements enum deserialization](https://github.com/dotnet/runtime/issues/31081#issuecomment-578459083). Eventually it will be removed when .NET 6 adds some form of `JsonStringEnumMemberConverter`.
